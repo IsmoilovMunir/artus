@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-product-moysklad-columns
+      author: aston
+      changes:
+        - addColumn:
+            tableName: product
+            columns:
+              - column: { name: moysklad_id, type: varchar(64), constraints: { unique: true } }
+              - column: { name: moysklad_updated_at, type: timestamp }
+
+  - changeSet:
+      id: 007-moysklad-placeholder-brand-category
+      author: aston
+      changes:
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "Без бренда" } }] }
+        - insert: { tableName: category, columns: [{ column: { name: name, value: "Без категории" } }] }

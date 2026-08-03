@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 103-seed-admin-users
+      author: aston
+      changes:
+        - insert: { tableName: admin_user, columns: [{ column: { name: name, value: "Админ Дежуров" } }, { column: { name: email, value: "admin@aston.ru" } }, { column: { name: role, value: "ADMIN" } }, { column: { name: status, value: "ACTIVE" } }, { column: { name: last_login, valueDate: "2026-07-29T09:12:00" } }] }
+        - insert: { tableName: admin_user, columns: [{ column: { name: name, value: "Мария Орлова" } }, { column: { name: email, value: "m.orlova@aston.ru" } }, { column: { name: role, value: "MANAGER" } }, { column: { name: status, value: "ACTIVE" } }, { column: { name: last_login, valueDate: "2026-07-28T18:40:00" } }] }
+        - insert: { tableName: admin_user, columns: [{ column: { name: name, value: "Павел Игнатьев" } }, { column: { name: email, value: "p.ignatiev@aston.ru" } }, { column: { name: role, value: "MANAGER" } }, { column: { name: status, value: "ACTIVE" } }, { column: { name: last_login, valueDate: "2026-07-27T14:05:00" } }] }
+        - insert: { tableName: admin_user, columns: [{ column: { name: name, value: "Виктория Лебедева" } }, { column: { name: email, value: "v.lebedeva@aston.ru" } }, { column: { name: role, value: "CONTENT_MANAGER" } }, { column: { name: status, value: "ACTIVE" } }, { column: { name: last_login, valueDate: "2026-07-26T11:22:00" } }] }
+        - insert: { tableName: admin_user, columns: [{ column: { name: name, value: "Артём Соловьёв" } }, { column: { name: email, value: "a.solovyov@aston.ru" } }, { column: { name: role, value: "MANAGER" } }, { column: { name: status, value: "BLOCKED" } }, { column: { name: last_login, valueDate: "2026-07-10T09:50:00" } }] }

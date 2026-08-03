@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-category-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: category
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(120), constraints: { nullable: false, unique: true } }
+              - column: { name: swatch, type: varchar(60) }
+              - column: { name: sort_order, type: int, defaultValueNumeric: 0 }
+
+  - changeSet:
+      id: 001-brand-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: brand
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(120), constraints: { nullable: false, unique: true } }

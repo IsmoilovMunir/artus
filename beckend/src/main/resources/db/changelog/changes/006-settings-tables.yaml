@@ -1,0 +1,84 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-site-seo-settings-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: site_seo_settings
+            columns:
+              - column: { name: id, type: smallint, constraints: { primaryKey: true } }
+              - column: { name: title, type: varchar(255) }
+              - column: { name: description, type: varchar(1000) }
+              - column: { name: ga_id, type: varchar(60) }
+              - column: { name: robots_index, type: boolean, defaultValueBoolean: true }
+
+  - changeSet:
+      id: 006-store-settings-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: store_settings
+            columns:
+              - column: { name: id, type: smallint, constraints: { primaryKey: true } }
+              - column: { name: markup_general, type: "numeric(5,2)" }
+              - column: { name: pay_card, type: boolean, defaultValueBoolean: true }
+              - column: { name: pay_sbp, type: boolean, defaultValueBoolean: true }
+              - column: { name: pay_cash, type: boolean, defaultValueBoolean: false }
+              - column: { name: notify_email_new_order, type: boolean, defaultValueBoolean: true }
+              - column: { name: notify_email_status_change, type: boolean, defaultValueBoolean: true }
+              - column: { name: notify_push_low_stock, type: boolean, defaultValueBoolean: true }
+              - column: { name: notify_email, type: varchar(255) }
+              - column: { name: store_name, type: varchar(255) }
+              - column: { name: store_phone, type: varchar(60) }
+              - column: { name: store_email, type: varchar(255) }
+              - column: { name: store_address, type: varchar(500) }
+              - column: { name: store_inn, type: varchar(20) }
+              - column: { name: store_ogrn, type: varchar(20) }
+              - column: { name: store_hours, type: varchar(120) }
+              - column: { name: wh_endpoint, type: varchar(500) }
+              - column: { name: wh_freq_minutes, type: int, defaultValueNumeric: 5 }
+              - column: { name: wh_last_sync, type: varchar(60) }
+
+  - changeSet:
+      id: 006-markup-by-category-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: markup_by_category
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: category_id, type: bigint, constraints: { nullable: false, unique: true, foreignKeyName: fk_markup_category, references: category(id) } }
+              - column: { name: pct, type: "numeric(5,2)", constraints: { nullable: false } }
+
+  - changeSet:
+      id: 006-markup-by-brand-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: markup_by_brand
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: brand_id, type: bigint, constraints: { nullable: false, unique: true, foreignKeyName: fk_markup_brand, references: brand(id) } }
+              - column: { name: pct, type: "numeric(5,2)", constraints: { nullable: false } }
+
+  - changeSet:
+      id: 006-delivery-method-cost-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: delivery_method_cost
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(120), constraints: { nullable: false } }
+              - column: { name: cost, type: "numeric(12,2)", constraints: { nullable: false } }
+
+  - changeSet:
+      id: 006-warehouse-sync-log-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: warehouse_sync_log
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: occurred_at, type: timestamp, defaultValueComputed: now(), constraints: { nullable: false } }
+              - column: { name: message, type: varchar(500), constraints: { nullable: false } }

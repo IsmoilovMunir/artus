@@ -1,0 +1,67 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-product-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: sku, type: varchar(80), constraints: { nullable: false, unique: true } }
+              - column: { name: brand_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_product_brand, references: brand(id) } }
+              - column: { name: category_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_product_category, references: category(id) } }
+              - column: { name: panel, type: varchar(40) }
+              - column: { name: resolution, type: varchar(20) }
+              - column: { name: platform, type: varchar(40) }
+              - column: { name: size, type: varchar(20) }
+              - column: { name: price, type: "numeric(12,2)", constraints: { nullable: false } }
+              - column: { name: old_price, type: "numeric(12,2)" }
+              - column: { name: stock, type: int, defaultValueNumeric: 0, constraints: { nullable: false } }
+              - column: { name: status, type: varchar(20), defaultValue: ACTIVE, constraints: { nullable: false } }
+              - column: { name: description, type: text }
+              - column: { name: seo_title, type: varchar(255) }
+              - column: { name: seo_description, type: varchar(1000) }
+              - column: { name: slug, type: varchar(255) }
+              - column: { name: seo_keywords, type: varchar(500) }
+              - column: { name: photo_alt, type: varchar(255) }
+              - column: { name: created_at, type: timestamp, defaultValueComputed: now(), constraints: { nullable: false } }
+              - column: { name: updated_at, type: timestamp, defaultValueComputed: now(), constraints: { nullable: false } }
+
+  - changeSet:
+      id: 002-product-spec-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: product_spec
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: product_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_spec_product, references: product(id) } }
+              - column: { name: spec_key, type: varchar(120), constraints: { nullable: false } }
+              - column: { name: spec_value, type: varchar(255) }
+              - column: { name: sort_order, type: int, defaultValueNumeric: 0 }
+
+  - changeSet:
+      id: 002-product-accessory-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: product_accessory
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: product_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_accessory_product, references: product(id) } }
+              - column: { name: label, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: sort_order, type: int, defaultValueNumeric: 0 }
+
+  - changeSet:
+      id: 002-product-photo-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: product_photo
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: product_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_photo_product, references: product(id) } }
+              - column: { name: object_key, type: varchar(500), constraints: { nullable: false } }
+              - column: { name: is_main, type: boolean, defaultValueBoolean: false }
+              - column: { name: sort_order, type: int, defaultValueNumeric: 0 }

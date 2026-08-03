@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-customer-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: city, type: varchar(120) }
+              - column: { name: phone, type: varchar(40) }
+              - column: { name: email, type: varchar(255) }
+
+  - changeSet:
+      id: 003-orders-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: order_number, type: varchar(40), constraints: { nullable: false, unique: true } }
+              - column: { name: customer_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_order_customer, references: customer(id) } }
+              - column: { name: order_date, type: date, constraints: { nullable: false } }
+              - column: { name: status, type: varchar(20), constraints: { nullable: false } }
+              - column: { name: payment_status, type: varchar(20), constraints: { nullable: false } }
+              - column: { name: delivery_method, type: varchar(80) }
+              - column: { name: address, type: varchar(500) }
+              - column: { name: phone, type: varchar(40) }
+              - column: { name: email, type: varchar(255) }
+              - column: { name: shipping_cost, type: "numeric(12,2)", defaultValueNumeric: 0, constraints: { nullable: false } }
+              - column: { name: created_at, type: timestamp, defaultValueComputed: now(), constraints: { nullable: false } }
+
+  - changeSet:
+      id: 003-order-item-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: order_item
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: order_id, type: bigint, constraints: { nullable: false, foreignKeyName: fk_item_order, references: orders(id) } }
+              - column: { name: product_id, type: bigint, constraints: { foreignKeyName: fk_item_product, references: product(id) } }
+              - column: { name: product_name_snapshot, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: qty, type: int, constraints: { nullable: false } }
+              - column: { name: price_snapshot, type: "numeric(12,2)", constraints: { nullable: false } }

@@ -1,0 +1,230 @@
+databaseChangeLog:
+  - changeSet:
+      id: 101-seed-products
+      author: aston
+      comment: Inserted in order so identity ids come out 1=p1..12=p12, matched by order_item seed later.
+      changes:
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'Samsung Neo QLED QN90D 55"' } }
+              - { column: { name: sku, value: "ASN-SM-QN90D-55" } }
+              - { column: { name: brand_id, valueNumeric: 1 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "QLED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Tizen" } }
+              - { column: { name: size, value: '55"' } }
+              - { column: { name: price, valueNumeric: 89990 } }
+              - { column: { name: old_price, valueNumeric: 99990 } }
+              - { column: { name: stock, valueNumeric: 24 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Neo QLED телевизор с процессором NQ4 AI Gen2 и квантовыми точками нового поколения." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'Samsung The Frame 65"' } }
+              - { column: { name: sku, value: "ASN-SM-FRAME-65" } }
+              - { column: { name: brand_id, valueNumeric: 1 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "QLED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Tizen" } }
+              - { column: { name: size, value: '65"' } }
+              - { column: { name: price, valueNumeric: 129990 } }
+              - { column: { name: stock, valueNumeric: 8 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Телевизор-картина с матовым экраном и сменными рамками." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'LG OLED C4 55"' } }
+              - { column: { name: sku, value: "ASN-LG-C4-55" } }
+              - { column: { name: brand_id, valueNumeric: 2 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "OLED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "webOS" } }
+              - { column: { name: size, value: '55"' } }
+              - { column: { name: price, valueNumeric: 119990 } }
+              - { column: { name: old_price, valueNumeric: 139990 } }
+              - { column: { name: stock, valueNumeric: 3 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "OLED-панель с идеальным чёрным и процессором α9 Gen7." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'LG QNED80 65"' } }
+              - { column: { name: sku, value: "ASN-LG-QNED80-65" } }
+              - { column: { name: brand_id, valueNumeric: 2 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "QLED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "webOS" } }
+              - { column: { name: size, value: '65"' } }
+              - { column: { name: price, valueNumeric: 74990 } }
+              - { column: { name: stock, valueNumeric: 15 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Квантовые точки NanoCell с широким углом обзора." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'Sony BRAVIA 9 65"' } }
+              - { column: { name: sku, value: "ASN-SN-BRAVIA9-65" } }
+              - { column: { name: brand_id, valueNumeric: 3 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "Mini LED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Google TV" } }
+              - { column: { name: size, value: '65"' } }
+              - { column: { name: price, valueNumeric: 189990 } }
+              - { column: { name: stock, valueNumeric: 6 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Флагманский Mini LED с процессором Cognitive XR." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'Sony BRAVIA X90L 55"' } }
+              - { column: { name: sku, value: "ASN-SN-X90L-55" } }
+              - { column: { name: brand_id, valueNumeric: 3 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "LED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Google TV" } }
+              - { column: { name: size, value: '55"' } }
+              - { column: { name: price, valueNumeric: 84990 } }
+              - { column: { name: old_price, valueNumeric: 94990 } }
+              - { column: { name: stock, valueNumeric: 0 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Full Array LED с локальным затемнением и живой цветопередачей." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'Xiaomi TV A Pro 50"' } }
+              - { column: { name: sku, value: "ASN-XM-APRO-50" } }
+              - { column: { name: brand_id, valueNumeric: 4 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "LED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Google TV" } }
+              - { column: { name: size, value: '50"' } }
+              - { column: { name: price, valueNumeric: 39990 } }
+              - { column: { name: stock, valueNumeric: 42 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Доступный Smart TV с Google TV и Dolby Vision." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: 'TCL C755 65"' } }
+              - { column: { name: sku, value: "ASN-TCL-C755-65" } }
+              - { column: { name: brand_id, valueNumeric: 5 } }
+              - { column: { name: category_id, valueNumeric: 1 } }
+              - { column: { name: panel, value: "QLED" } }
+              - { column: { name: resolution, value: "4K" } }
+              - { column: { name: platform, value: "Google TV" } }
+              - { column: { name: size, value: '65"' } }
+              - { column: { name: price, valueNumeric: 64990 } }
+              - { column: { name: old_price, valueNumeric: 69990 } }
+              - { column: { name: stock, valueNumeric: 19 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "QLED с Mini LED подсветкой и 144Гц для игр." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: "Крепление настенное наклонно-поворотное" } }
+              - { column: { name: sku, value: "ASN-ACC-MOUNT-01" } }
+              - { column: { name: brand_id, valueNumeric: 6 } }
+              - { column: { name: category_id, valueNumeric: 2 } }
+              - { column: { name: panel, value: "—" } }
+              - { column: { name: resolution, value: "—" } }
+              - { column: { name: platform, value: "—" } }
+              - { column: { name: size, value: '43–85"' } }
+              - { column: { name: price, valueNumeric: 3990 } }
+              - { column: { name: stock, valueNumeric: 120 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Универсальное крепление для телевизоров 43–85 дюймов с наклоном и поворотом." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: "Саундбар Aston SB300 2.1" } }
+              - { column: { name: sku, value: "ASN-ACC-SB300" } }
+              - { column: { name: brand_id, valueNumeric: 6 } }
+              - { column: { name: category_id, valueNumeric: 2 } }
+              - { column: { name: panel, value: "—" } }
+              - { column: { name: resolution, value: "—" } }
+              - { column: { name: platform, value: "—" } }
+              - { column: { name: size, value: "—" } }
+              - { column: { name: price, valueNumeric: 12990 } }
+              - { column: { name: stock, valueNumeric: 2 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Саундбар 2.1 с беспроводным сабвуфером и поддержкой Dolby Audio." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: "Пульт универсальный Aston RC-Pro" } }
+              - { column: { name: sku, value: "ASN-ACC-RCPRO" } }
+              - { column: { name: brand_id, valueNumeric: 6 } }
+              - { column: { name: category_id, valueNumeric: 2 } }
+              - { column: { name: panel, value: "—" } }
+              - { column: { name: resolution, value: "—" } }
+              - { column: { name: platform, value: "—" } }
+              - { column: { name: size, value: "—" } }
+              - { column: { name: price, valueNumeric: 1490 } }
+              - { column: { name: stock, valueNumeric: 200 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Универсальный пульт с поддержкой всех крупных брендов ТВ." } }
+        - insert:
+            tableName: product
+            columns:
+              - { column: { name: name, value: "Кабель HDMI 2.1 8K, 2м" } }
+              - { column: { name: sku, value: "ASN-ACC-HDMI21" } }
+              - { column: { name: brand_id, valueNumeric: 6 } }
+              - { column: { name: category_id, valueNumeric: 2 } }
+              - { column: { name: panel, value: "—" } }
+              - { column: { name: resolution, value: "—" } }
+              - { column: { name: platform, value: "—" } }
+              - { column: { name: size, value: "—" } }
+              - { column: { name: price, valueNumeric: 990 } }
+              - { column: { name: stock, valueNumeric: 5 } }
+              - { column: { name: status, value: "ACTIVE" } }
+              - { column: { name: description, value: "Кабель HDMI 2.1 с поддержкой 8K@60Hz и 4K@120Hz." } }
+
+  - changeSet:
+      id: 101-seed-product-specs
+      author: aston
+      changes:
+        - insert:
+            tableName: product_spec
+            columns:
+              - { column: { name: product_id, valueNumeric: 1 } }
+              - { column: { name: spec_key, value: "Частота обновления" } }
+              - { column: { name: spec_value, value: "144 Гц" } }
+              - { column: { name: sort_order, valueNumeric: 1 } }
+        - insert:
+            tableName: product_spec
+            columns:
+              - { column: { name: product_id, valueNumeric: 1 } }
+              - { column: { name: spec_key, value: "Разъёмы" } }
+              - { column: { name: spec_value, value: "4xHDMI 2.1, 2xUSB" } }
+              - { column: { name: sort_order, valueNumeric: 2 } }
+        - insert:
+            tableName: product_spec
+            columns:
+              - { column: { name: product_id, valueNumeric: 1 } }
+              - { column: { name: spec_key, value: "Энергопотребление" } }
+              - { column: { name: spec_value, value: "150 Вт" } }
+              - { column: { name: sort_order, valueNumeric: 3 } }
+
+  - changeSet:
+      id: 101-seed-product-accessories
+      author: aston
+      changes:
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 1 } }, { column: { name: label, value: "Крепление настенное" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 1 } }, { column: { name: label, value: "Пульт Aston RC-Pro" } }, { column: { name: sort_order, valueNumeric: 2 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 2 } }, { column: { name: label, value: "Крепление настенное" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 3 } }, { column: { name: label, value: "Саундбар Aston SB300" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 4 } }, { column: { name: label, value: "Крепление настенное" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 4 } }, { column: { name: label, value: "Кабель HDMI 2.1" } }, { column: { name: sort_order, valueNumeric: 2 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 5 } }, { column: { name: label, value: "Саундбар Aston SB300" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 7 } }, { column: { name: label, value: "Пульт Aston RC-Pro" } }, { column: { name: sort_order, valueNumeric: 1 } }] }
+        - insert: { tableName: product_accessory, columns: [{ column: { name: product_id, valueNumeric: 8 } }, { column: { name: label, value: "Крепление настенное" } }, { column: { name: sort_order, valueNumeric: 1 } }] }

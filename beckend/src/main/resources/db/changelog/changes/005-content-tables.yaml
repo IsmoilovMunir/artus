@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-banner-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: banner
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: title, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: subtitle, type: varchar(500) }
+              - column: { name: active_from, type: date }
+              - column: { name: active_to, type: date }
+              - column: { name: active, type: boolean, defaultValueBoolean: true }
+              - column: { name: image_object_key, type: varchar(500) }
+
+  - changeSet:
+      id: 005-promo-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: promo
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: title, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: discount_pct, type: int, constraints: { nullable: false } }
+              - column: { name: scope, type: varchar(255) }
+              - column: { name: active_from, type: date }
+              - column: { name: active_to, type: date }
+              - column: { name: active, type: boolean, defaultValueBoolean: true }
+
+  - changeSet:
+      id: 005-menu-item-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: menu_item
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: name, type: varchar(120), constraints: { nullable: false } }
+              - column: { name: sort_order, type: int, defaultValueNumeric: 0 }
+              - column: { name: visible, type: boolean, defaultValueBoolean: true }
+
+  - changeSet:
+      id: 005-page-table
+      author: aston
+      changes:
+        - createTable:
+            tableName: page
+            columns:
+              - column: { name: id, type: bigint, autoIncrement: true, constraints: { primaryKey: true } }
+              - column: { name: title, type: varchar(255), constraints: { nullable: false } }
+              - column: { name: content, type: text }
+              - column: { name: meta_title, type: varchar(255) }
+              - column: { name: meta_description, type: varchar(500) }
+              - column: { name: status, type: varchar(20), defaultValue: DRAFT, constraints: { nullable: false } }
+              - column: { name: updated_at, type: timestamp, defaultValueComputed: now(), constraints: { nullable: false } }

@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-lookup-tables.yaml
+  - include:
+      file: db/changelog/changes/002-product-tables.yaml
+  - include:
+      file: db/changelog/changes/003-customer-order-tables.yaml
+  - include:
+      file: db/changelog/changes/004-admin-user-table.yaml
+  - include:
+      file: db/changelog/changes/005-content-tables.yaml
+  - include:
+      file: db/changelog/changes/006-settings-tables.yaml
+  - include:
+      file: db/changelog/changes/007-moysklad-sync-columns.yaml
+  - include:
+      file: db/changelog/changes/100-seed-lookup-data.yaml
+  - include:
+      file: db/changelog/changes/101-seed-products.yaml
+  - include:
+      file: db/changelog/changes/102-seed-customers-orders.yaml
+  - include:
+      file: db/changelog/changes/103-seed-users.yaml
+  - include:
+      file: db/changelog/changes/104-seed-content.yaml
+  - include:
+      file: db/changelog/changes/105-seed-settings.yaml

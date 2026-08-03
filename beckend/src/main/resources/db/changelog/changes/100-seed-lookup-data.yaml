@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 100-seed-categories
+      author: aston
+      comment: Inserted in order so identity ids come out 1=Телевизоры .. 6=Пульты, matched by later seed changesets.
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Телевизоры" } }
+              - { column: { name: swatch, value: "violet" } }
+              - { column: { name: sort_order, valueNumeric: 1 } }
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Аксессуары" } }
+              - { column: { name: swatch, value: "cyan" } }
+              - { column: { name: sort_order, valueNumeric: 2 } }
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Крепления" } }
+              - { column: { name: swatch, value: "green" } }
+              - { column: { name: sort_order, valueNumeric: 3 } }
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Звук" } }
+              - { column: { name: swatch, value: "orange" } }
+              - { column: { name: sort_order, valueNumeric: 4 } }
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Кабели" } }
+              - { column: { name: swatch, value: "amber" } }
+              - { column: { name: sort_order, valueNumeric: 5 } }
+        - insert:
+            tableName: category
+            columns:
+              - { column: { name: name, value: "Пульты" } }
+              - { column: { name: swatch, value: "purple" } }
+              - { column: { name: sort_order, valueNumeric: 6 } }
+
+  - changeSet:
+      id: 100-seed-brands
+      author: aston
+      comment: Inserted in order so identity ids come out 1=Samsung .. 6=Aston, matched by later seed changesets.
+      changes:
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "Samsung" } }] }
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "LG" } }] }
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "Sony" } }] }
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "Xiaomi" } }] }
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "TCL" } }] }
+        - insert: { tableName: brand, columns: [{ column: { name: name, value: "Aston" } }] }

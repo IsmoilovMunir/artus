@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Sora", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* surfaces */
+  --color-bg: oklch(0.15 0.012 258);
+  --color-sidebar: oklch(0.13 0.012 258);
+  --color-topbar: oklch(0.155 0.012 258);
+  --color-surface: oklch(0.19 0.013 258);
+  --color-surface-2: oklch(0.2 0.013 258);
+  --color-surface-3: oklch(0.16 0.012 258);
+  --color-surface-inset: oklch(0.145 0.012 258);
+  --color-surface-hover: oklch(0.22 0.013 258);
+  --color-surface-active: oklch(0.24 0.012 258);
+
+  /* borders */
+  --color-border-subtle: oklch(0.23 0.012 258);
+  --color-border: oklch(0.26 0.012 258);
+  --color-border-input: oklch(0.28 0.012 258);
+  --color-border-strong: oklch(0.32 0.012 258);
+
+  /* text */
+  --color-text: oklch(0.96 0.004 258);
+  --color-text-secondary: oklch(0.85 0.006 258);
+  --color-text-tertiary: oklch(0.75 0.01 258);
+  --color-muted: oklch(0.58 0.014 258);
+  --color-faint: oklch(0.5 0.014 258);
+
+  /* accents (per-section + status hues) */
+  --color-accent-violet: oklch(0.68 0.16 250);
+  --color-accent-cyan: oklch(0.72 0.14 195);
+  --color-accent-orange: oklch(0.68 0.16 25);
+  --color-accent-green: oklch(0.68 0.16 150);
+  --color-accent-amber: oklch(0.75 0.15 85);
+  --color-accent-purple: oklch(0.68 0.16 300);
+  --color-accent-blue: oklch(0.68 0.16 235);
+  --color-accent-yellow: oklch(0.75 0.15 60);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: var(--font-sans);
+}
+
+a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+}
+a:hover {
+  color: oklch(0.8 0.14 195);
+}

@@ -1,0 +1,74 @@
+databaseChangeLog:
+  - changeSet:
+      id: 105-seed-site-seo-settings
+      author: aston
+      changes:
+        - insert:
+            tableName: site_seo_settings
+            columns:
+              - { column: { name: id, valueNumeric: 1 } }
+              - { column: { name: title, value: "Aston — телевизоры и аксессуары" } }
+              - { column: { name: description, value: "Официальный магазин телевизоров Samsung, LG, Sony, Xiaomi и аксессуаров с доставкой по России." } }
+              - { column: { name: ga_id, value: "" } }
+              - { column: { name: robots_index, valueBoolean: true } }
+
+  - changeSet:
+      id: 105-seed-store-settings
+      author: aston
+      changes:
+        - insert:
+            tableName: store_settings
+            columns:
+              - { column: { name: id, valueNumeric: 1 } }
+              - { column: { name: markup_general, valueNumeric: 25 } }
+              - { column: { name: pay_card, valueBoolean: true } }
+              - { column: { name: pay_sbp, valueBoolean: true } }
+              - { column: { name: pay_cash, valueBoolean: false } }
+              - { column: { name: notify_email_new_order, valueBoolean: true } }
+              - { column: { name: notify_email_status_change, valueBoolean: true } }
+              - { column: { name: notify_push_low_stock, valueBoolean: true } }
+              - { column: { name: notify_email, value: "orders@aston.ru" } }
+              - { column: { name: store_name, value: "ООО «Астон Электроникс»" } }
+              - { column: { name: store_phone, value: "+7 495 000-00-00" } }
+              - { column: { name: store_email, value: "info@aston.ru" } }
+              - { column: { name: store_address, value: "г. Москва, Складочная ул., 3" } }
+              - { column: { name: store_inn, value: "7701234567" } }
+              - { column: { name: store_ogrn, value: "1157746112233" } }
+              - { column: { name: store_hours, value: "Пн–Вс 9:00–21:00" } }
+              - { column: { name: wh_endpoint, value: "https://warehouse.aston.internal/api/v1/stock" } }
+              - { column: { name: wh_freq_minutes, valueNumeric: 5 } }
+              - { column: { name: wh_last_sync, value: "29.07.2026, 09:47" } }
+
+  - changeSet:
+      id: 105-seed-markup-by-category
+      author: aston
+      changes:
+        - insert: { tableName: markup_by_category, columns: [{ column: { name: category_id, valueNumeric: 1 } }, { column: { name: pct, valueNumeric: 22 } }] }
+        - insert: { tableName: markup_by_category, columns: [{ column: { name: category_id, valueNumeric: 2 } }, { column: { name: pct, valueNumeric: 35 } }] }
+
+  - changeSet:
+      id: 105-seed-markup-by-brand
+      author: aston
+      changes:
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 1 } }, { column: { name: pct, valueNumeric: 20 } }] }
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 2 } }, { column: { name: pct, valueNumeric: 22 } }] }
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 3 } }, { column: { name: pct, valueNumeric: 18 } }] }
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 4 } }, { column: { name: pct, valueNumeric: 30 } }] }
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 5 } }, { column: { name: pct, valueNumeric: 28 } }] }
+        - insert: { tableName: markup_by_brand, columns: [{ column: { name: brand_id, valueNumeric: 6 } }, { column: { name: pct, valueNumeric: 45 } }] }
+
+  - changeSet:
+      id: 105-seed-delivery-method-cost
+      author: aston
+      changes:
+        - insert: { tableName: delivery_method_cost, columns: [{ column: { name: name, value: "Курьером по городу" } }, { column: { name: cost, valueNumeric: 490 } }] }
+        - insert: { tableName: delivery_method_cost, columns: [{ column: { name: name, value: "Самовывоз" } }, { column: { name: cost, valueNumeric: 0 } }] }
+        - insert: { tableName: delivery_method_cost, columns: [{ column: { name: name, value: "Транспортной компанией" } }, { column: { name: cost, valueNumeric: 990 } }] }
+
+  - changeSet:
+      id: 105-seed-warehouse-sync-log
+      author: aston
+      changes:
+        - insert: { tableName: warehouse_sync_log, columns: [{ column: { name: occurred_at, valueDate: "2026-07-29T09:37:00" } }, { column: { name: message, value: "Обновлено 141 товар, добавлен 1 новый SKU" } }] }
+        - insert: { tableName: warehouse_sync_log, columns: [{ column: { name: occurred_at, valueDate: "2026-07-29T09:42:00" } }, { column: { name: message, value: "Обновлено 142 товара, изменений цен: 0" } }] }
+        - insert: { tableName: warehouse_sync_log, columns: [{ column: { name: occurred_at, valueDate: "2026-07-29T09:47:00" } }, { column: { name: message, value: "Обновлено 142 товара, изменений цен: 6" } }] }

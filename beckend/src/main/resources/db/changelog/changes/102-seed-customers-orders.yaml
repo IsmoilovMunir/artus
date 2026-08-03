@@ -1,0 +1,152 @@
+databaseChangeLog:
+  - changeSet:
+      id: 102-seed-customers
+      author: aston
+      comment: Inserted in order so identity ids come out 1=c1..6=c6, matched by orders seed below.
+      changes:
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Иван Петров" } }, { column: { name: city, value: "Москва" } }] }
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Анна Смирнова" } }, { column: { name: city, value: "Санкт-Петербург" } }] }
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Дмитрий Кузнецов" } }, { column: { name: city, value: "Казань" } }] }
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Ольга Волкова" } }, { column: { name: city, value: "Новосибирск" } }] }
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Сергей Новиков" } }, { column: { name: city, value: "Екатеринбург" } }] }
+        - insert: { tableName: customer, columns: [{ column: { name: name, value: "Екатерина Соколова" } }, { column: { name: city, value: "Москва" } }] }
+
+  - changeSet:
+      id: 102-seed-orders
+      author: aston
+      comment: Inserted in order so identity ids come out 1=ASTN-10251..9=ASTN-10229, matched by order_item seed below.
+      changes:
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10251" } }
+              - { column: { name: customer_id, valueNumeric: 1 } }
+              - { column: { name: order_date, valueDate: "2026-07-27" } }
+              - { column: { name: status, value: "NEW" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Курьером" } }
+              - { column: { name: address, value: "г. Москва, ул. Тверская, 12, кв. 45" } }
+              - { column: { name: phone, value: "+7 916 233-10-98" } }
+              - { column: { name: email, value: "i.petrov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10250" } }
+              - { column: { name: customer_id, valueNumeric: 3 } }
+              - { column: { name: order_date, valueDate: "2026-07-27" } }
+              - { column: { name: status, value: "NEW" } }
+              - { column: { name: payment_status, value: "AWAITING_PAYMENT" } }
+              - { column: { name: delivery_method, value: "Самовывоз" } }
+              - { column: { name: address, value: "г. Казань, пр. Победы, 78" } }
+              - { column: { name: phone, value: "+7 927 511-42-06" } }
+              - { column: { name: email, value: "d.kuznetsov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10248" } }
+              - { column: { name: customer_id, valueNumeric: 6 } }
+              - { column: { name: order_date, valueDate: "2026-07-26" } }
+              - { column: { name: status, value: "PROCESSING" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Курьером" } }
+              - { column: { name: address, value: "г. Москва, Ленинский пр-т, 90" } }
+              - { column: { name: phone, value: "+7 903 771-24-51" } }
+              - { column: { name: email, value: "e.sokolova@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 990 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10246" } }
+              - { column: { name: customer_id, valueNumeric: 5 } }
+              - { column: { name: order_date, valueDate: "2026-07-25" } }
+              - { column: { name: status, value: "PROCESSING" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Транспортной компанией" } }
+              - { column: { name: address, value: "г. Екатеринбург, ул. Малышева, 33" } }
+              - { column: { name: phone, value: "+7 912 044-91-77" } }
+              - { column: { name: email, value: "s.novikov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 1490 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10244" } }
+              - { column: { name: customer_id, valueNumeric: 2 } }
+              - { column: { name: order_date, valueDate: "2026-07-23" } }
+              - { column: { name: status, value: "SHIPPED" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Транспортной компанией" } }
+              - { column: { name: address, value: "г. Санкт-Петербург, Невский пр-т, 140" } }
+              - { column: { name: phone, value: "+7 921 305-88-12" } }
+              - { column: { name: email, value: "a.smirnova@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 990 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10242" } }
+              - { column: { name: customer_id, valueNumeric: 1 } }
+              - { column: { name: order_date, valueDate: "2026-07-21" } }
+              - { column: { name: status, value: "SHIPPED" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Курьером" } }
+              - { column: { name: address, value: "г. Москва, ул. Тверская, 12, кв. 45" } }
+              - { column: { name: phone, value: "+7 916 233-10-98" } }
+              - { column: { name: email, value: "i.petrov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10239" } }
+              - { column: { name: customer_id, valueNumeric: 3 } }
+              - { column: { name: order_date, valueDate: "2026-07-19" } }
+              - { column: { name: status, value: "DELIVERED" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Курьером" } }
+              - { column: { name: address, value: "г. Казань, пр. Победы, 78" } }
+              - { column: { name: phone, value: "+7 927 511-42-06" } }
+              - { column: { name: email, value: "d.kuznetsov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10233" } }
+              - { column: { name: customer_id, valueNumeric: 4 } }
+              - { column: { name: order_date, valueDate: "2026-07-12" } }
+              - { column: { name: status, value: "DELIVERED" } }
+              - { column: { name: payment_status, value: "PAID" } }
+              - { column: { name: delivery_method, value: "Самовывоз" } }
+              - { column: { name: address, value: "г. Новосибирск, Красный пр-т, 55" } }
+              - { column: { name: phone, value: "+7 913 400-27-63" } }
+              - { column: { name: email, value: "o.volkova@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+        - insert:
+            tableName: orders
+            columns:
+              - { column: { name: order_number, value: "ASTN-10229" } }
+              - { column: { name: customer_id, valueNumeric: 5 } }
+              - { column: { name: order_date, valueDate: "2026-07-08" } }
+              - { column: { name: status, value: "CANCELLED" } }
+              - { column: { name: payment_status, value: "REFUNDED" } }
+              - { column: { name: delivery_method, value: "Курьером" } }
+              - { column: { name: address, value: "г. Екатеринбург, ул. Малышева, 33" } }
+              - { column: { name: phone, value: "+7 912 044-91-77" } }
+              - { column: { name: email, value: "s.novikov@mail.ru" } }
+              - { column: { name: shipping_cost, valueNumeric: 0 } }
+
+  - changeSet:
+      id: 102-seed-order-items
+      author: aston
+      changes:
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 1 } }, { column: { name: product_id, valueNumeric: 1 } }, { column: { name: product_name_snapshot, value: 'Samsung Neo QLED QN90D 55"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 89990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 1 } }, { column: { name: product_id, valueNumeric: 9 } }, { column: { name: product_name_snapshot, value: "Крепление настенное наклонно-поворотное" } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 3990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 2 } }, { column: { name: product_id, valueNumeric: 5 } }, { column: { name: product_name_snapshot, value: 'Sony BRAVIA 9 65"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 189990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 3 } }, { column: { name: product_id, valueNumeric: 3 } }, { column: { name: product_name_snapshot, value: 'LG OLED C4 55"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 119990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 3 } }, { column: { name: product_id, valueNumeric: 10 } }, { column: { name: product_name_snapshot, value: "Саундбар Aston SB300 2.1" } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 12990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 4 } }, { column: { name: product_id, valueNumeric: 8 } }, { column: { name: product_name_snapshot, value: 'TCL C755 65"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 64990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 5 } }, { column: { name: product_id, valueNumeric: 4 } }, { column: { name: product_name_snapshot, value: 'LG QNED80 65"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 74990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 5 } }, { column: { name: product_id, valueNumeric: 12 } }, { column: { name: product_name_snapshot, value: "Кабель HDMI 2.1 8K, 2м" } }, { column: { name: qty, valueNumeric: 2 } }, { column: { name: price_snapshot, valueNumeric: 990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 6 } }, { column: { name: product_id, valueNumeric: 11 } }, { column: { name: product_name_snapshot, value: "Пульт универсальный Aston RC-Pro" } }, { column: { name: qty, valueNumeric: 2 } }, { column: { name: price_snapshot, valueNumeric: 1490 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 7 } }, { column: { name: product_id, valueNumeric: 7 } }, { column: { name: product_name_snapshot, value: 'Xiaomi TV A Pro 50"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 39990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 8 } }, { column: { name: product_id, valueNumeric: 7 } }, { column: { name: product_name_snapshot, value: 'Xiaomi TV A Pro 50"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 39990 } }] }
+        - insert: { tableName: order_item, columns: [{ column: { name: order_id, valueNumeric: 9 } }, { column: { name: product_id, valueNumeric: 6 } }, { column: { name: product_name_snapshot, value: 'Sony BRAVIA X90L 55"' } }, { column: { name: qty, valueNumeric: 1 } }, { column: { name: price_snapshot, valueNumeric: 84990 } }] }

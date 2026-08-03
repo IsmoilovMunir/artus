@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 104-seed-banners
+      author: aston
+      changes:
+        - insert: { tableName: banner, columns: [{ column: { name: title, value: "Новинки OLED от LG" } }, { column: { name: subtitle, value: "Скидки до 15% на телевизоры LG" } }, { column: { name: active_from, valueDate: "2026-07-20" } }, { column: { name: active_to, valueDate: "2026-08-05" } }, { column: { name: active, valueBoolean: true } }] }
+        - insert: { tableName: banner, columns: [{ column: { name: title, value: "Sony BRAVIA 9 — уже в продаже" } }, { column: { name: subtitle, value: "Флагманский Mini LED телевизор" } }, { column: { name: active_from, valueDate: "2026-07-15" } }, { column: { name: active_to, valueDate: "2026-07-31" } }, { column: { name: active, valueBoolean: true } }] }
+        - insert: { tableName: banner, columns: [{ column: { name: title, value: "Аксессуары в подарок" } }, { column: { name: subtitle, value: "При покупке телевизора Samsung" } }, { column: { name: active_from, valueDate: "2026-07-01" } }, { column: { name: active_to, valueDate: "2026-07-15" } }, { column: { name: active, valueBoolean: false } }] }
+
+  - changeSet:
+      id: 104-seed-promos
+      author: aston
+      changes:
+        - insert: { tableName: promo, columns: [{ column: { name: title, value: "Лето с Aston" } }, { column: { name: discount_pct, valueNumeric: 10 } }, { column: { name: scope, value: "Все телевизоры Samsung" } }, { column: { name: active_from, valueDate: "2026-07-01" } }, { column: { name: active_to, valueDate: "2026-08-31" } }, { column: { name: active, valueBoolean: true } }] }
+        - insert: { tableName: promo, columns: [{ column: { name: title, value: "Комплект: ТВ + саундбар" } }, { column: { name: discount_pct, valueNumeric: 15 } }, { column: { name: scope, value: "При покупке аксессуара с ТВ" } }, { column: { name: active_from, valueDate: "2026-07-10" } }, { column: { name: active_to, valueDate: "2026-08-10" } }, { column: { name: active, valueBoolean: true } }] }
+        - insert: { tableName: promo, columns: [{ column: { name: title, value: "Весенняя распродажа" } }, { column: { name: discount_pct, valueNumeric: 20 } }, { column: { name: scope, value: "Категория Аксессуары" } }, { column: { name: active_from, valueDate: "2026-04-01" } }, { column: { name: active_to, valueDate: "2026-04-30" } }, { column: { name: active, valueBoolean: false } }] }
+
+  - changeSet:
+      id: 104-seed-menu-items
+      author: aston
+      changes:
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Телевизоры" } }, { column: { name: sort_order, valueNumeric: 1 } }, { column: { name: visible, valueBoolean: true } }] }
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Аксессуары" } }, { column: { name: sort_order, valueNumeric: 2 } }, { column: { name: visible, valueBoolean: true } }] }
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Крепления" } }, { column: { name: sort_order, valueNumeric: 3 } }, { column: { name: visible, valueBoolean: true } }] }
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Звук" } }, { column: { name: sort_order, valueNumeric: 4 } }, { column: { name: visible, valueBoolean: true } }] }
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Акции" } }, { column: { name: sort_order, valueNumeric: 5 } }, { column: { name: visible, valueBoolean: true } }] }
+        - insert: { tableName: menu_item, columns: [{ column: { name: name, value: "Бренды" } }, { column: { name: sort_order, valueNumeric: 6 } }, { column: { name: visible, valueBoolean: false } }] }
+
+  - changeSet:
+      id: 104-seed-pages
+      author: aston
+      changes:
+        - insert: { tableName: page, columns: [{ column: { name: title, value: "О нас" } }, { column: { name: content, value: "Aston — сеть магазинов телевизоров и аксессуаров. Работаем с 2019 года." } }, { column: { name: meta_title, value: "О компании Aston" } }, { column: { name: meta_description, value: "История и миссия компании Aston." } }, { column: { name: status, value: "PUBLISHED" } }, { column: { name: updated_at, valueDate: "2026-06-12T00:00:00" } }] }
+        - insert: { tableName: page, columns: [{ column: { name: title, value: "Доставка и оплата" } }, { column: { name: content, value: "Доставляем по всей России курьером, транспортной компанией или самовывозом." } }, { column: { name: meta_title, value: "Доставка и оплата — Aston" } }, { column: { name: meta_description, value: "Условия доставки и способы оплаты в магазине Aston." } }, { column: { name: status, value: "PUBLISHED" } }, { column: { name: updated_at, valueDate: "2026-07-01T00:00:00" } }] }
+        - insert: { tableName: page, columns: [{ column: { name: title, value: "Гарантия и возврат" } }, { column: { name: content, value: "Гарантия на все телевизоры — от 1 до 3 лет в зависимости от бренда." } }, { column: { name: meta_title, value: "Гарантия и возврат — Aston" } }, { column: { name: meta_description, value: "Условия гарантии и возврата товара." } }, { column: { name: status, value: "PUBLISHED" } }, { column: { name: updated_at, valueDate: "2026-05-18T00:00:00" } }] }
+        - insert: { tableName: page, columns: [{ column: { name: title, value: "Контакты" } }, { column: { name: content, value: "г. Москва, Складочная ул., 3. Телефон: +7 495 000-00-00." } }, { column: { name: meta_title, value: "Контакты — Aston" } }, { column: { name: meta_description, value: "Адреса и контакты магазинов Aston." } }, { column: { name: status, value: "PUBLISHED" } }, { column: { name: updated_at, valueDate: "2026-03-02T00:00:00" } }] }
+        - insert: { tableName: page, columns: [{ column: { name: title, value: "Оптовым клиентам" } }, { column: { name: content, value: "Специальные условия для оптовых закупок телевизоров и аксессуаров." } }, { column: { name: meta_title, value: "Опт — Aston" } }, { column: { name: meta_description, value: "Условия работы с оптовыми клиентами." } }, { column: { name: status, value: "DRAFT" } }, { column: { name: updated_at, valueDate: "2026-07-25T00:00:00" } }] }
