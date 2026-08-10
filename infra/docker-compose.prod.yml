@@ -23,6 +23,10 @@ services:
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    ports:
+      # Console bound to localhost only — reach it over an SSH tunnel, never expose it publicly:
+      # it's a full read/write/delete file manager authenticated with the MinIO root credentials.
+      - "127.0.0.1:9001:9001"
     volumes:
       - aston-minio-data:/data
     healthcheck:
