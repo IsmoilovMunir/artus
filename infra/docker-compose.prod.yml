@@ -75,11 +75,13 @@ services:
     env_file: ./.env
     environment:
       DOMAIN: ${DOMAIN}
+      ADMIN_DOMAIN: ${ADMIN_DOMAIN}
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./frontend-placeholder:/srv/frontend-placeholder:ro
       - caddy-data:/data
       - caddy-config:/config
     depends_on:
