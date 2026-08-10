@@ -94,7 +94,6 @@ public class MoySkladClient {
             }
         };
     }
-
     public List<MoySkladProductRow> fetchAllProducts() {
         List<MoySkladProductRow> all = new ArrayList<>();
         int offset = 0;
