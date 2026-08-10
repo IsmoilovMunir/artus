@@ -1,6 +1,6 @@
 import type { CategoryItem, Product } from "./types";
 
-const BASE_URL = process.env.API_BASE_URL ?? "http://localhost:8080/api/v1";
+const BASE_URL = process.env.API_BASE_URL || "http://localhost:8080/api/v1";
 
 // The backend keeps ~1-minute-fresh stock/price data via a МойСклад poller,
 // so ISR revalidation is set to match that cadence instead of caching longer.

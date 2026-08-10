@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllProducts, getCategories, productSlug } from "@/lib/api";
 
-const siteUrl = process.env.SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.SITE_URL || "http://localhost:3000";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [products, categories] = await Promise.all([

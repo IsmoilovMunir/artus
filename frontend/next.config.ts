@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 function remoteImagePattern() {
-  const raw = process.env.MINIO_PUBLIC_URL ?? "http://localhost:9000";
+  const raw = process.env.MINIO_PUBLIC_URL || "http://localhost:9000";
   const url = new URL(raw);
   return {
     protocol: url.protocol.replace(":", "") as "http" | "https",
