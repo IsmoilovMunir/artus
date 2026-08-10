@@ -8,6 +8,3 @@ infra/.env
 # Old design mockup export, not part of the actual app
 /Aston Admin.dc.html
 /support.js
-
-# No real app in here yet
-/frontend/

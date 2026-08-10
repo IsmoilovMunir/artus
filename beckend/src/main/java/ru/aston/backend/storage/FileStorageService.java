@@ -49,7 +49,7 @@ public class FileStorageService {
 
     public String publicUrl(String objectKey) {
         if (objectKey == null || objectKey.isBlank()) return null;
-        return properties.getEndpoint() + "/" + properties.getBucket() + "/" + objectKey;
+        return properties.getPublicUrl() + "/" + properties.getBucket() + "/" + objectKey;
     }
 
     /** Only used for diagnostics/tests — normal photo serving goes through {@link #publicUrl} directly against MinIO. */

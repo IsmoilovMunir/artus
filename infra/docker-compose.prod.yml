@@ -45,6 +45,7 @@ services:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       CORS_ALLOWED_ORIGINS: ${CORS_ALLOWED_ORIGINS}
       MINIO_ENDPOINT: http://minio:9000
+      MINIO_PUBLIC_URL: ${MINIO_PUBLIC_URL}
       MINIO_ACCESS_KEY: ${MINIO_ROOT_USER}
       MINIO_SECRET_KEY: ${MINIO_ROOT_PASSWORD}
       MINIO_BUCKET: ${MINIO_BUCKET}
@@ -70,23 +71,42 @@ services:
       - backend
     restart: unless-stopped
 
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+      args:
+        API_BASE_URL: http://backend:8080/api/v1
+        SITE_URL: https://${DOMAIN}
+        MINIO_PUBLIC_URL: ${MINIO_PUBLIC_URL}
+    env_file: ./.env
+    environment:
+      API_BASE_URL: http://backend:8080/api/v1
+      SITE_URL: https://${DOMAIN}
+      MINIO_PUBLIC_URL: ${MINIO_PUBLIC_URL}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
   caddy:
     image: caddy:2-alpine
     env_file: ./.env
     environment:
       DOMAIN: ${DOMAIN}
       ADMIN_DOMAIN: ${ADMIN_DOMAIN}
+      MEDIA_DOMAIN: ${MEDIA_DOMAIN}
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - ./frontend-placeholder:/srv/frontend-placeholder:ro
       - caddy-data:/data
       - caddy-config:/config
     depends_on:
       - admin
       - backend
+      - frontend
+      - minio
     restart: unless-stopped
 
 volumes:

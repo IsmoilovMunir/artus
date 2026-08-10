@@ -27,6 +27,11 @@ app:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173}
   minio:
     endpoint: ${MINIO_ENDPOINT:http://localhost:9000}
+    # Browser-facing URL for uploaded photos — MINIO_ENDPOINT is the internal
+    # Docker hostname the backend uses to talk to MinIO, which isn't reachable
+    # from a client's browser. Defaults to MINIO_ENDPOINT for convenience but
+    # should be set to a publicly reachable host in every real deployment.
+    public-url: ${MINIO_PUBLIC_URL:${app.minio.endpoint}}
     access-key: ${MINIO_ACCESS_KEY:minioadmin}
     secret-key: ${MINIO_SECRET_KEY:minioadmin123}
     bucket: ${MINIO_BUCKET:aston-media}
